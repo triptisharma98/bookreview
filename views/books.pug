@@ -1,0 +1,49 @@
+include partials/header.pug
+body 
+    .modal.fade(id="reviewBookModal",data-bs-backdrop="static",data-bs-keyboard="false",tabindex="-1",aria-labelledby="staticBackdropLabel",aria-hidden="true")
+        .modal-dialog.modal-dialog-centered
+            .modal-content
+                .modal-header
+                    h5.modal-title(id="staticBackdropLabel") Review Book
+                    button.btn-close(type="button",data-bs-dismiss="modal",aria-label="Close")
+                .modal-body
+                    .container(id="userBookReviews")
+                    .container(id="addReviewContainer")
+                        .row 
+                            .col-lg-12 
+                                .form-group.mt-4.text-center
+                                    input.form-control(type="hidden",id="bookIdReview")
+                                    input.form-control(type="hidden",id="editIdReview")
+                                    input.form-control(type="hidden",id="reviewNumber")
+                                    span(style="font-size: 20px")
+                                        i.fa.fa-star.addS(data-id="1",style="cursor:pointer")
+                                        i.fa.fa-star.addS(data-id="2",style="cursor:pointer")
+                                        i.fa.fa-star.addS(data-id="3",style="cursor:pointer")
+                                        i.fa.fa-star.addS(data-id="4",style="cursor:pointer")
+                                        i.fa.fa-star.addS(data-id="5",style="cursor:pointer")
+                                    textarea.form-control.mt-2(id="reviewDesc", placeholder="Write a Review...")
+                .modal-footer
+                    button.btn.btn-secondary.closeModal(type="button",data-bs-dismiss="modal") Cancel
+                    button.btn.btn-primary(type="button",id="addReviewBtn") Submit
+                    button.btn.btn-primary(type="button",id="updateReviewBtn",style="display:none") Update
+    include partials/navbar.pug
+    .header
+        .content Books
+    .container(style="padding-bottom: 100px")
+        .row.mt-4
+            .col-lg-12
+                .alert
+            .col-lg-12.text-left
+                span.title Books 
+            .col-lg-12.mt-4
+                table.table 
+                    thead 
+                        tr
+                            th ID
+                            th Name
+                            th Author
+                            th Publish date
+                            th Desc
+                            th Action
+                    tbody(id='userBooks')
+    include partials/footer.pug
